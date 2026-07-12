@@ -1,7 +1,14 @@
+
+
 # EquiLens - AI Investment Research Agent
 
 EquiLens is an elite, glass-themed AI Investment Research Platform. It resolves corporate symbols, retrieves official financial health profiles, aggregates real-time news sentiment, and uses Generative AI to deliver structured investment theses, SWOT audits, and recommendation convictions.
 
+  ## 🌐 Live Demo
+
+**Frontend:** https://equilens-black.vercel.app
+
+**Backend API:** https://equilens-wzch.onrender.com
 ---
 
 ## 🚀 Overview
