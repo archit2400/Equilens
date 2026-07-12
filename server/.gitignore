@@ -1,0 +1,28 @@
+# ── Environment & Secrets ────────────────────────────────────────────────────
+# NEVER commit these — they contain database credentials and API keys
+.env
+.env.local
+.env.*.local
+.env.production
+
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Generated Prisma client ──────────────────────────────────────────────────
+# Regenerated automatically by `prisma generate` — no need to commit
+node_modules/.prisma/
+
+# ── Log files ────────────────────────────────────────────────────────────────
+*.log
+unhandled_error.log
+logs/
+
+# ── Build artifacts ──────────────────────────────────────────────────────────
+dist/
+build/
+
+# ── OS & editor junk ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

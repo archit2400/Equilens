@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  name      String?
+  password  String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  favorites Favorite[]
+  history   History[]
+  reports   Report[]
+}
+
+model Company {
+  id           String     @id @default(uuid())
+  symbol       String     @unique
+  name         String
+  description  String?
+  industry     String?
+  sector       String?
+  ceo          String?
+  website      String?
+  marketCap    Float?
+  peRatio      Float?
+  dyRatio      Float?
+  revenue      Float?
+  netProfit    Float?
+  profitMargin Float?
+  debtToEquity Float?
+  currentRatio Float?
+  eps          Float?
+  beta         Float?
+  employees    Int?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  favorites    Favorite[]
+  news         News[]
+  reports      Report[]
+}
+
+model Report {
+  id             String   @id @default(uuid())
+  userId         String
+  companyId      String
+  recommendation String
+  confidence     Int
+  summary        String
+  strengths      Json
+  weaknesses     Json
+  opportunities  Json
+  threats        Json
+  risks          Json
+  news           Json
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  company        Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model News {
+  id          String    @id @default(uuid())
+  companyId   String
+  title       String
+  source      String
+  url         String?
+  summary     String?
+  sentiment   String?
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+model History {
+  id         String   @id @default(uuid())
+  userId     String
+  query      String
+  searchedAt DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Favorite {
+  id        String   @id @default(uuid())
+  userId    String
+  companyId String
+  createdAt DateTime @default(now())
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, companyId])
+}
