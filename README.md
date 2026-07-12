@@ -8,7 +8,10 @@ EquiLens is an elite, glass-themed AI Investment Research Platform. It resolves 
 
 **Frontend:** https://equilens-black.vercel.app
 
+
 **Backend API:** https://equilens-wzch.onrender.com
+
+
 **GitHUB:** https://github.com/archit2400/Equilens
 ---
 
@@ -115,6 +118,7 @@ graph TD
   DBCache --> Return[201 Created JSON Response to Frontend]
 ```
 
+
 ### Key Modules
 1. **`symbolResolver.js`**: Checks local dictionaries and queries stable search endpoints to prioritize major stock exchanges. Instantly rejects private entities (SpaceX, OpenAI, Flipkart) with a `PrivateCompanyError`.
 2. **`financialService.js`**: Fetches financials from stable endpoints. Catches paywall `402` or `403` warning responses for non-US symbols and degrades gracefully (returns profile data and sets paywalled statements to null, allowing analysis to proceed).
@@ -182,5 +186,5 @@ To prevent brute-forcing, scraping, and endpoint abuse, two separate rate limite
 
 ## 💬 BONUS: Pair-Programming Chat Transcripts
 To review the complete development process, details on bug resolutions, and the developer's raw thought processes, the full conversation logs are stored at:
-* **System Transcript path:** [transcript.jsonl](file:///C:/Users/ARCHIT/.gemini/antigravity-ide/brain/dfc8ff23-b572-4784-aaf6-29fb81055e2a/.system_generated/logs/transcript.jsonl)
-* **Global AppData path:** `C:\Users\ARCHIT\.gemini\antigravity-ide\brain\dfc8ff23-b572-4784-aaf6-29fb81055e2a\.system_generated\logs\transcript_full.jsonl`
+
+`
