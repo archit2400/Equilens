@@ -9,6 +9,7 @@ EquiLens is an elite, glass-themed AI Investment Research Platform. It resolves 
 **Frontend:** https://equilens-black.vercel.app
 
 **Backend API:** https://equilens-wzch.onrender.com
+**GitHUB:** https://github.com/archit2400/Equilens
 ---
 
 ## 🚀 Overview
