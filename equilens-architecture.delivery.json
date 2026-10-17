@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "493105cb-ad5a-4a44-82ad-2836a9524ad8",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\.archify\\architecture-equilens-20261018-003400\\candidate.json",
+  "output": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\equilens-architecture.html",
+  "specification": {
+    "sha256": "906e96de1a58f4371388aae40f17eaa34366262108753198cd4ba5f3466d4c4e",
+    "bytes": 10865
+  },
+  "artifact": {
+    "sha256": "243b15e5c487e38d3832ef2315e733a14d01af1d036419e249e7ecff59b1e5c8",
+    "bytes": 852701
+  }
+}

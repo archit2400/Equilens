@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "EquiLens AI Investment Platform Architecture",
+    "output": "equilens-architecture.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/archit2400/Equilens.git",
+      "revision": "3e211c003f8171199ad26de539b83e3f769836b8",
+      "provider": "github"
+    }
+  },
+  "components": [
+    {
+      "id": "users",
+      "type": "external",
+      "icon": "person",
+      "label": "Equity Investors",
+      "sublabel": "Browser Client / Analyst",
+      "pos": [40, 160],
+      "size": [130, 60]
+    },
+    {
+      "id": "clerk_cloud",
+      "type": "security",
+      "icon": "security",
+      "label": "Clerk Auth Cloud",
+      "sublabel": "User Identity & JWT Issuance",
+      "pos": [40, 50],
+      "size": [130, 60]
+    },
+    {
+      "id": "client_spa",
+      "type": "frontend",
+      "icon": "frontend",
+      "label": "React 19 SPA",
+      "sublabel": "Vite 8 & Tailwind CSS",
+      "pos": [280, 160],
+      "size": [140, 60],
+      "sources": [
+        { "path": "client/src/App.jsx", "line": 13, "end_line": 41, "label": "App Router" }
+      ]
+    },
+    {
+      "id": "auth_context",
+      "type": "security",
+      "icon": "security",
+      "label": "AuthContext Provider",
+      "sublabel": "Clerk Token Interceptor",
+      "pos": [280, 50],
+      "size": [140, 60],
+      "sources": [
+        { "path": "client/src/context/AuthContext.jsx", "line": 7, "end_line": 49, "label": "JWT Interceptor" }
+      ]
+    },
+    {
+      "id": "client_dashboard",
+      "type": "frontend",
+      "icon": "frontend",
+      "label": "Research Dashboard",
+      "sublabel": "Financial Charts & SWOT",
+      "pos": [280, 270],
+      "size": [140, 60],
+      "sources": [
+        { "path": "client/src/pages/Dashboard.jsx", "line": 88, "end_line": 113, "label": "Analysis View" }
+      ]
+    },
+    {
+      "id": "api_gateway",
+      "type": "backend",
+      "icon": "backend",
+      "label": "Express API Gateway",
+      "sublabel": "Helmet, CORS & Rate Limits",
+      "pos": [560, 160],
+      "size": [140, 60],
+      "sources": [
+        { "path": "server/index.js", "line": 48, "end_line": 115, "label": "Security Pipeline" }
+      ]
+    },
+    {
+      "id": "jwt_middleware",
+      "type": "security",
+      "icon": "security",
+      "label": "Clerk JWT Middleware",
+      "sublabel": "Token & Email Gate",
+      "pos": [560, 50],
+      "size": [140, 60],
+      "sources": [
+        { "path": "server/middleware/jwt.js", "line": 9, "end_line": 60, "label": "Token Verification" }
+      ]
+    },
+    {
+      "id": "analyze_controller",
+      "type": "backend",
+      "icon": "backend",
+      "label": "Analysis Controller",
+      "sublabel": "Pipeline Orchestration",
+      "pos": [840, 150],
+      "size": [140, 80],
+      "sources": [
+        { "path": "server/controllers/analyze.controller.js", "line": 18, "end_line": 85, "label": "Analysis Orchestrator" }
+      ]
+    },
+    {
+      "id": "company_service",
+      "type": "backend",
+      "icon": "backend",
+      "label": "Company Service",
+      "sublabel": "Prisma $transaction Upsert",
+      "pos": [840, 280],
+      "size": [140, 60],
+      "sources": [
+        { "path": "server/services/companyService.js", "line": 59, "end_line": 110, "label": "Report Persistence" }
+      ]
+    },
+    {
+      "id": "symbol_resolver",
+      "type": "backend",
+      "icon": "decision",
+      "label": "Symbol Resolver",
+      "sublabel": "Private Filter & Ticker Map",
+      "pos": [1110, 50],
+      "size": [145, 60],
+      "sources": [
+        { "path": "server/services/symbolResolver.js", "line": 49, "end_line": 116, "label": "Ticker Resolution" }
+      ]
+    },
+    {
+      "id": "financial_service",
+      "type": "backend",
+      "icon": "backend",
+      "label": "Financial Service",
+      "sublabel": "FMP Profile & TTM Ratios",
+      "pos": [1110, 160],
+      "size": [145, 60],
+      "sources": [
+        { "path": "server/services/financialService.js", "line": 68, "end_line": 179, "label": "Financials Ingestion" }
+      ]
+    },
+    {
+      "id": "news_service",
+      "type": "backend",
+      "icon": "backend",
+      "label": "News Feed Service",
+      "sublabel": "Tavily Real-Time Search",
+      "pos": [1110, 270],
+      "size": [145, 60],
+      "sources": [
+        { "path": "server/services/newsService.js", "line": 26, "end_line": 69, "label": "News Aggregation" }
+      ]
+    },
+    {
+      "id": "ai_service",
+      "type": "backend",
+      "icon": "backend",
+      "label": "AI Reasoning Service",
+      "sublabel": "Gemini 2.5 & Groq Fallback",
+      "pos": [1110, 380],
+      "size": [145, 60],
+      "sources": [
+        { "path": "server/services/aiAnalysisService.js", "line": 75, "end_line": 197, "label": "Multi-LLM Engine" }
+      ]
+    },
+    {
+      "id": "postgres_db",
+      "type": "database",
+      "icon": "database",
+      "label": "PostgreSQL Database",
+      "sublabel": "Prisma ORM Persistence",
+      "pos": [840, 480],
+      "size": [140, 60],
+      "sources": [
+        { "path": "server/prisma/schema.prisma", "line": 10, "end_line": 98, "label": "Prisma Schema Models" }
+      ]
+    },
+    {
+      "id": "fmp_api",
+      "type": "cloud",
+      "icon": "cloud",
+      "label": "FMP Cloud API",
+      "sublabel": "Profiles, Ratios & Stmts",
+      "pos": [1390, 105],
+      "size": [135, 60]
+    },
+    {
+      "id": "tavily_api",
+      "type": "cloud",
+      "icon": "cloud",
+      "label": "Tavily Search API",
+      "sublabel": "Financial News & Sentiment",
+      "pos": [1390, 270],
+      "size": [135, 60]
+    },
+    {
+      "id": "gemini_api",
+      "type": "cloud",
+      "icon": "cloud",
+      "label": "Google Gemini 2.5",
+      "sublabel": "Primary SWOT & Conviction",
+      "pos": [1390, 380],
+      "size": [135, 60]
+    },
+    {
+      "id": "groq_api",
+      "type": "cloud",
+      "icon": "cloud",
+      "label": "Groq Cloud API",
+      "sublabel": "Llama-3.3-70b Fallback",
+      "pos": [1390, 490],
+      "size": [135, 60]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Client Tier (Vercel)",
+      "wraps": ["client_spa", "auth_context", "client_dashboard"]
+    },
+    {
+      "kind": "region",
+      "label": "Backend Application Tier (Render / Express)",
+      "wraps": [
+        "api_gateway",
+        "jwt_middleware",
+        "analyze_controller",
+        "company_service",
+        "symbol_resolver",
+        "financial_service",
+        "news_service",
+        "ai_service"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "Persistence Tier (PostgreSQL / Neon)",
+      "wraps": ["postgres_db"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "user-to-client",
+      "from": "users",
+      "to": "client_spa",
+      "label": "Query Input"
+    },
+    {
+      "id": "clerk-session",
+      "from": "clerk_cloud",
+      "to": "auth_context",
+      "label": "OAuth & JWT",
+      "variant": "security"
+    },
+    {
+      "id": "auth-to-client",
+      "from": "auth_context",
+      "to": "client_spa",
+      "label": "Bearer Token",
+      "variant": "security"
+    },
+    {
+      "id": "spa-to-dashboard",
+      "from": "client_spa",
+      "to": "client_dashboard",
+      "label": "Render State"
+    },
+    {
+      "id": "client-to-api",
+      "from": "client_spa",
+      "to": "api_gateway",
+      "label": "POST /api/analyze",
+      "variant": "emphasis"
+    },
+    {
+      "id": "api-to-jwt",
+      "from": "api_gateway",
+      "to": "jwt_middleware",
+      "label": "Verify Token",
+      "variant": "security"
+    },
+    {
+      "id": "api-to-controller",
+      "from": "api_gateway",
+      "to": "analyze_controller",
+      "label": "Dispatch Analysis"
+    },
+    {
+      "id": "controller-to-resolver",
+      "from": "analyze_controller",
+      "to": "symbol_resolver",
+      "label": "1. Resolve Ticker"
+    },
+    {
+      "id": "controller-to-financial",
+      "from": "analyze_controller",
+      "to": "financial_service",
+      "label": "2. Fetch Financials"
+    },
+    {
+      "id": "controller-to-news",
+      "from": "analyze_controller",
+      "to": "news_service",
+      "label": "3. Query News"
+    },
+    {
+      "id": "controller-to-ai",
+      "from": "analyze_controller",
+      "to": "ai_service",
+      "label": "4. Run AI Audit"
+    },
+    {
+      "id": "controller-to-company",
+      "from": "analyze_controller",
+      "to": "company_service",
+      "label": "5. Save Report"
+    },
+    {
+      "id": "company-to-db",
+      "from": "company_service",
+      "to": "postgres_db",
+      "label": "Prisma $transaction"
+    },
+    {
+      "id": "resolver-to-fmp",
+      "from": "symbol_resolver",
+      "to": "fmp_api",
+      "label": "Search Tickers"
+    },
+    {
+      "id": "financial-to-fmp",
+      "from": "financial_service",
+      "to": "fmp_api",
+      "label": "TTM Ratios"
+    },
+    {
+      "id": "news-to-tavily",
+      "from": "news_service",
+      "to": "tavily_api",
+      "label": "Real-Time Feed"
+    },
+    {
+      "id": "ai-to-gemini",
+      "from": "ai_service",
+      "to": "gemini_api",
+      "label": "Gemini 2.5 Flash",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ai-to-groq",
+      "from": "ai_service",
+      "to": "groq_api",
+      "label": "Quota Fallback",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Frontend Client Tier",
+      "items": [
+        "Vite 8 SPA built with React 19, Tailwind CSS, Lucide icons, and Recharts",
+        "ClerkProvider authenticates users and mints verified JWT session tokens",
+        "Axios request interceptor dynamically injects tokens on protected API calls"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "API Gateway & Security",
+      "items": [
+        "Express API gateway secured by Helmet headers, strict CORS, and rate limits",
+        "Dual rate limiters: 100 req/15min global, 10 req/15min on auth endpoints",
+        "Clerk JWT middleware validates tokens and verifies email status before DB sync"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Multi-LLM Agentic Pipeline",
+      "items": [
+        "Symbol resolver filters private entities (SpaceX, OpenAI) and resolves tickers",
+        "Parallel financial data ingestion via FMP (profile, TTM ratios, income statements)",
+        "Real-time news search and source extraction using Tavily Search API",
+        "Google Gemini 2.5 Flash primary LLM with automatic Groq Llama-3.3 fallback"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Database & Persistence",
+      "items": [
+        "PostgreSQL database managed through Prisma ORM schemas",
+        "Atomic Prisma $transaction for company upserts, reports, news, and search history",
+        "Multi-tenant queries strictly scoped by userId to eliminate IDOR vulnerabilities"
+      ]
+    }
+  ]
+}

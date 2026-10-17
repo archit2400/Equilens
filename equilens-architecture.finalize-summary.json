@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\.archify\\architecture-equilens-20261018-003400\\candidate.json",
+    "sha256": "906e96de1a58f4371388aae40f17eaa34366262108753198cd4ba5f3466d4c4e",
+    "bytes": 10865
+  },
+  "artifact": {
+    "path": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\equilens-architecture.html",
+    "sha256": "243b15e5c487e38d3832ef2315e733a14d01af1d036419e249e7ecff59b1e5c8",
+    "bytes": 852701
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\equilens-architecture.finalize.json",
+    "summaryReceipt": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\equilens-architecture.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\ARCHIT\\Desktop\\AI PRODUCT\\equilens-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-17T19:07:31.143Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 5937
+}
